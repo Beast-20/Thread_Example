@@ -3,14 +3,15 @@ class PrintCharacters implements Runnable {
     @Override
     public void run() {
         for (char c = 'A'; c <= 'Z'; c++) {
-            System.out.println("Thread 2: " + c);
+            //System.out.println("Thread 2: " + c);
 
             if (ThreadExample.stopThread2) {
                 System.out.println("Thread 2 stopped");
                 break;
             }
+            System.out.println("Thread 2: " + c);
             try {
-                Thread.sleep(100);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -21,10 +22,10 @@ class PrintCharacters implements Runnable {
 class PrintNumbers implements Runnable {
     @Override
     public void run() {
-        for (int i = 1; i <= 27; i++) {
+        for (int i = 1; i <= 100; i++) {
             System.out.println("Thread 1: " + i);
             try {
-                Thread.sleep(50);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
